@@ -1,0 +1,12 @@
+---
+- name: Install apache package
+  apt:
+    name: apache2
+    state: present
+
+- name: copy index file
+  copy:
+    content: "This is web server\n"
+    dest: /var/www/html/index.html
+  notify: restart apache2
+
